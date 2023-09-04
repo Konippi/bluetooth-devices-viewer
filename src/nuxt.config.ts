@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["nuxt-electron"],
-  rootDir: ".",
+  rootDir: "./",
   srcDir: "src/",
   devServer: {
     host: process.env.SERVER_HOST,
