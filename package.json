@@ -1,19 +1,30 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "license": "UNLICENSED",
   "packageManager": "yarn@1.22.19",
+  "main": "dist-electron/main.js",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv ../.env.local src",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "format": "prettier --write ."
   },
   "devDependencies": {
+    "@mdi/font": "^7.2.96",
     "@nuxt/devtools": "latest",
     "electron": "^26.1.0",
     "nuxt": "^3.7.0",
     "nuxt-electron": "^0.6.0",
-    "vite-plugin-electron": "^0.14.0"
+    "sass": "^1.66.1",
+    "vite-plugin-electron": "^0.14.0",
+    "vite-plugin-vuetify": "^1.0.2",
+    "vuetify": "^3.3.15"
+  },
+  "dependencies": {
+    "prettier": "^3.0.3",
+    "vite": "^4.4.9"
   }
 }
