@@ -16,15 +16,14 @@
     "@mdi/font": "^7.2.96",
     "@nuxt/devtools": "latest",
     "electron": "^26.1.0",
+    "eslint": "^8.48.0",
     "nuxt": "^3.7.0",
     "nuxt-electron": "^0.6.0",
+    "prettier": "^3.0.3",
     "sass": "^1.66.1",
     "vite-plugin-electron": "^0.14.0",
     "vite-plugin-vuetify": "^1.0.2",
     "vuetify": "^3.3.15"
   },
-  "dependencies": {
-    "prettier": "^3.0.3",
-    "vite": "^4.4.9"
-  }
+  "dependencies": {}
 }
