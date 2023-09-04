@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
+  buildDir: "src/.nuxt/",
   vite: {
     define: {
       "process.env.DEBUG": false,
