@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <v-btn>sample</v-btn>
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

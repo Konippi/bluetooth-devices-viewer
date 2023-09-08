@@ -8,7 +8,24 @@ export default defineNuxtConfig({
     port: Number(process.env.SERVER_PORT),
   },
   electron: {
-    build: [{ entry: "electron/main.ts" }],
+    build: [
+      {
+        entry: "electron/main.ts",
+        vite: {
+          build: {
+            rollupOptions: {
+              external: ["serialport"],
+            },
+          },
+        },
+      },
+      {
+        entry: "electron/preload.ts",
+        onstart: (app) => {
+          app.reload();
+        },
+      },
+    ],
   },
   build: {
     transpile: ["vuetify"],
@@ -19,5 +36,5 @@ export default defineNuxtConfig({
       "process.env.DEBUG": false,
     },
   },
-  css: ["@/assets/main.scss"],
+  css: ["@/assets/main.scss", "@mdi/font/css/materialdesignicons.css"],
 });
