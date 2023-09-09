@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const handleClickButton = async () => {
+onMounted(async () => {
   const ports = await window.serialConnection.invokeFetchSerialPorts();
   console.log(ports);
-};
+});
 </script>
 
 <template>
-  <v-container> <v-btn @click="handleClickButton">sample</v-btn> </v-container>
+  <v-container> <v-btn>sample</v-btn> </v-container>
 </template>
