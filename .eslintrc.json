@@ -26,6 +26,7 @@
     // off
     "vue/multi-word-component-names": "off",
     "vue/singleline-html-element-content-newline": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "arrow-parens": "off"
   }
 }

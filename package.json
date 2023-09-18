@@ -6,7 +6,7 @@
   "main": "dist-electron/main.js",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --dotenv ../.env src",
+    "dev": "nuxt dev --dotenv ../.env renderer",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -14,9 +14,11 @@
     "lint": "eslint ./**/*.{vue,ts}"
   },
   "devDependencies": {
+    "@abandonware/noble": "^1.9.2-23",
     "@mdi/font": "^7.2.96",
     "@nuxt/devtools": "latest",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@types/web-bluetooth": "^0.0.17",
     "electron": "^26.1.0",
     "electron-rebuild": "^3.2.9",
     "eslint": "^8.48.0",

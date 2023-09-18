@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["nuxt-electron"],
   rootDir: "./",
-  srcDir: "src/",
+  srcDir: "renderer/",
   devServer: {
     host: process.env.SERVER_HOST,
     port: Number(process.env.SERVER_PORT),
@@ -11,13 +11,6 @@ export default defineNuxtConfig({
     build: [
       {
         entry: "electron/main.ts",
-        vite: {
-          build: {
-            rollupOptions: {
-              external: ["serialport"],
-            },
-          },
-        },
       },
       {
         entry: "electron/preload.ts",
@@ -30,7 +23,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
-  buildDir: "src/.nuxt/",
+  buildDir: "renderer/.nuxt/",
   vite: {
     define: {
       "process.env.DEBUG": false,

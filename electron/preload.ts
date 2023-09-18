@@ -1,8 +1,5 @@
 import { contextBridge, ipcRenderer } from "electron";
 
-contextBridge.exposeInMainWorld("serialConnection", {
+contextBridge.exposeInMainWorld("bluetoothAPI", {
   ...ipcRenderer,
-  invokeFetchSerialPorts: async () => {
-    return await ipcRenderer.invoke("fetch:serial-ports");
-  },
 });
