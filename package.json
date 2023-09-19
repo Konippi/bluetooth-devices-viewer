@@ -14,7 +14,6 @@
     "lint": "eslint ./**/*.{vue,ts}"
   },
   "devDependencies": {
-    "@abandonware/noble": "^1.9.2-23",
     "@mdi/font": "^7.2.96",
     "@nuxt/devtools": "latest",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
@@ -27,7 +26,6 @@
     "nuxt-electron": "^0.6.0",
     "prettier": "^3.0.3",
     "sass": "^1.66.1",
-    "serialport": "^12.0.0",
     "typescript": "^5.2.2",
     "vite-plugin-electron": "^0.14.0",
     "vite-plugin-vuetify": "^1.0.2",
