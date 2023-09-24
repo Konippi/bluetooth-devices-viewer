@@ -3,13 +3,11 @@ const handleClick = async () => {
   navigator.bluetooth.getAvailability().then((isAvailable) => {
     console.log(isAvailable);
   });
-  navigator.bluetooth.getDevices().then((devices) => {
-    console.log(devices);
-  });
-  const device = await navigator.bluetooth.requestDevice({
+  await navigator.bluetooth.requestDevice({
     acceptAllDevices: true,
   });
-  console.log(device);
+  const deviceList = await window.bluetoothAPI.invokeSelectBluetoothDevices();
+  console.log(deviceList);
 };
 </script>
 

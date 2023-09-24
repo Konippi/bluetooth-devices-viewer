@@ -1,1 +1,1 @@
-"use strict";const e=require("electron");e.contextBridge.exposeInMainWorld("bluetoothAPI",{...e.ipcRenderer});
+"use strict";const e=require("electron");e.contextBridge.exposeInMainWorld("bluetoothAPI",{...e.ipcRenderer,invokeSelectBluetoothDevices:async()=>await e.ipcRenderer.invoke("select:bluetooth-devices")});

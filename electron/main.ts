@@ -1,8 +1,9 @@
 import * as path from "path";
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 
-const SERVER_HOST = process.env.SERVER_HOST;
-const SERVER_PORT = process.env.SERVER_PORT;
+const SERVER_HOST: string | undefined = process.env.SERVER_HOST;
+const SERVER_PORT: string | undefined = process.env.SERVER_PORT;
+let bluetoothDevices: Electron.BluetoothDevice[];
 
 const createWindow = () => {
   app.whenReady().then(() => {
@@ -25,6 +26,7 @@ const createWindow = () => {
         callback: (deviceId: string) => void
       ) => {
         event.preventDefault();
+        bluetoothDevices = deviceList;
         deviceList.forEach((device: Electron.BluetoothDevice) => {
           callback(device.deviceId);
         });
@@ -36,6 +38,7 @@ const createWindow = () => {
 };
 
 app.on("ready", () => {
+  ipcMain.handle("select:bluetooth-devices", selectBluetoothDevices);
   createWindow();
 });
 
@@ -50,3 +53,7 @@ app.on("activate", () => {
     createWindow();
   }
 });
+
+const selectBluetoothDevices = () => {
+  return bluetoothDevices;
+};
