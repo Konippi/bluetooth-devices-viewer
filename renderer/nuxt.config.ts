@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["nuxt-electron"],
+  modules: ["nuxt-electron", "@pinia/nuxt", "dayjs-nuxt"],
   rootDir: "./",
   srcDir: "renderer/",
   devServer: {
@@ -19,6 +19,9 @@ export default defineNuxtConfig({
         },
       },
     ],
+  },
+  pinia: {
+    autoImports: ["defineStore"],
   },
   build: {
     transpile: ["vuetify"],

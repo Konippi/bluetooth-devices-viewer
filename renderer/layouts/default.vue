@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Header />
     <SideBar />
     <v-main>
       <slot />

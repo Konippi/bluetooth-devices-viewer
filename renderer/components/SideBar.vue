@@ -1,13 +1,18 @@
+<script setup lang="ts">
+import { useGlobalStore } from "~/store/global-store";
+
+const store = useGlobalStore();
+</script>
+
 <template>
-  <v-navigation-drawer width="200" color="grey-darken-3" permanent>
+  <v-navigation-drawer v-model="store.isSideBarOpen" width="54" permanent>
     <v-list density="compact" nav>
-      <v-list-item prepend-icon="mdi-home-outline" value="home">
-        <v-list-item-title class="font-weight-bold"> Home </v-list-item-title>
+      <v-list-item prepend-icon="mdi-home-outline" value="home" @click="$router.push('/')">
+        <v-tooltip activator="parent">Home</v-tooltip>
       </v-list-item>
-      <v-list-item prepend-icon="mdi-cog-outline" value="settings">
-        <v-list-item-title class="font-weight-bold">
-          Settings
-        </v-list-item-title>
+      <v-divider />
+      <v-list-item prepend-icon="mdi-cog-outline" value="control" @click="$router.push('/control')">
+        <v-tooltip activator="parent">Settings</v-tooltip>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
