@@ -7,7 +7,7 @@ const { availableDevices } = storeToRefs(store);
 
 const handleClick = async () => {
   navigator.bluetooth.getAvailability().then((isAvailable) => {
-    console.log(isAvailable);
+    store.setIsBluetoothAvailable(isAvailable);
   });
   await navigator.bluetooth.requestDevice({
     acceptAllDevices: true,

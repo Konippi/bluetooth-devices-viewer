@@ -4,6 +4,7 @@ export const useGlobalStore = defineStore("globalStore", {
     ({
       isSideBarOpen: false,
       availableDevices: [],
+      isBluetoothAvailable: false,
     }) as IGlobalStore,
   actions: {
     setIsSideBarOpen(isSideBarOpen: boolean) {
@@ -11,6 +12,9 @@ export const useGlobalStore = defineStore("globalStore", {
     },
     setAvailableDevices(availableDevices: Electron.BluetoothDevice[]) {
       this.availableDevices = availableDevices;
+    },
+    setIsBluetoothAvailable(isBluetoothAvailable: boolean) {
+      this.isBluetoothAvailable = isBluetoothAvailable;
     },
   },
 });
