@@ -1,20 +1,20 @@
-import { IGlobalStore } from "./../types/store.d";
+import { IGlobalStore } from "../types/store.d";
 export const useGlobalStore = defineStore("globalStore", {
   state: () =>
     ({
       isSideBarOpen: false,
-      availableDevices: [],
       isBluetoothAvailable: false,
+      detectedDevices: [],
     }) as IGlobalStore,
   actions: {
     setIsSideBarOpen(isSideBarOpen: boolean) {
       this.isSideBarOpen = isSideBarOpen;
     },
-    setAvailableDevices(availableDevices: Electron.BluetoothDevice[]) {
-      this.availableDevices = availableDevices;
-    },
     setIsBluetoothAvailable(isBluetoothAvailable: boolean) {
       this.isBluetoothAvailable = isBluetoothAvailable;
+    },
+    pushAvailableDevices(device: BluetoothDevice) {
+      this.detectedDevices.push(device);
     },
   },
 });

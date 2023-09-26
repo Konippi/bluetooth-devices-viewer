@@ -28,6 +28,7 @@
     "vue/singleline-html-element-content-newline": "off",
     "no-console": "off",
     "arrow-parens": "off",
-    "space-before-function-paren": "off"
+    "space-before-function-paren": "off",
+    "n/no-callback-literal": "off"
   }
 }

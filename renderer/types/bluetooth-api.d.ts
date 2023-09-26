@@ -1,6 +1,4 @@
-interface IBluetoothAPI {
-  invokeSelectBluetoothDevices: () => Promise<Electron.BluetoothDevice[]>;
-}
+interface IBluetoothAPI {}
 
 // global declaration
 export declare global {

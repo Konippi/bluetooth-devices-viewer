@@ -1,26 +1,24 @@
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
 import { useGlobalStore } from "~/store/global-store";
 
 const store = useGlobalStore();
-const { availableDevices } = storeToRefs(store);
 
 const handleClick = async () => {
-  navigator.bluetooth.getAvailability().then((isAvailable) => {
+  navigator.bluetooth.getAvailability().then((isAvailable: boolean) => {
     store.setIsBluetoothAvailable(isAvailable);
   });
-  await navigator.bluetooth.requestDevice({
-    acceptAllDevices: true,
-  });
-  const devices = await window.bluetoothAPI.invokeSelectBluetoothDevices();
-  store.setAvailableDevices(devices);
+  store.pushAvailableDevices(
+    await navigator.bluetooth.requestDevice({
+      acceptAllDevices: true,
+    })
+  );
 };
 </script>
 
 <template>
   <v-container>
-    <v-btn @click="handleClick">sample</v-btn>
-    <v-container v-for="device in availableDevices" :key="device.deviceId">
+    <v-btn @click="handleClick">UPDATE</v-btn>
+    <v-container v-for="device in store.detectedDevices" :key="device.id">
       <device-item :device="device" />
     </v-container>
   </v-container>
