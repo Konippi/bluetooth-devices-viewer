@@ -19,15 +19,9 @@ const createWindow = () => {
 
     browserWindow.webContents.on(
       "select-bluetooth-device",
-      (
-        event: Electron.Event,
-        deviceList: Electron.BluetoothDevice[],
-        callback: (deviceId: string) => void
-      ) => {
+      (event: Electron.Event, deviceList: Electron.BluetoothDevice[]) => {
         event.preventDefault();
-        deviceList.forEach((device: Electron.BluetoothDevice) => {
-          callback(device.deviceId);
-        });
+        browserWindow.webContents.send("select:detected-devices", deviceList);
       }
     );
 

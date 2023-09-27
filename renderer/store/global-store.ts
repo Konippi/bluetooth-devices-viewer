@@ -13,8 +13,8 @@ export const useGlobalStore = defineStore("globalStore", {
     setIsBluetoothAvailable(isBluetoothAvailable: boolean) {
       this.isBluetoothAvailable = isBluetoothAvailable;
     },
-    pushAvailableDevices(device: BluetoothDevice) {
-      this.detectedDevices.push(device);
+    setAvailableDevices(devices: Electron.BluetoothDevice[]) {
+      this.detectedDevices = devices;
     },
   },
 });

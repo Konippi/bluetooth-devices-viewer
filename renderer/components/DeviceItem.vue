@@ -6,7 +6,6 @@ const props = defineProps<IDeviceItemProps>();
 
 <template>
   <v-card prepend-icon="mdi-home">
-    <v-card-title> {{ props.device.name }} </v-card-title>
-    <v-card-text> Connected: {{ props.device.gatt?.connected }} </v-card-text>
+    <v-card-title> {{ props.device.deviceName }} </v-card-title>
   </v-card>
 </template>
