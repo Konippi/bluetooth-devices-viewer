@@ -1,29 +1,21 @@
 <script setup lang="ts">
-import { IpcRendererEvent } from "electron";
 import { storeToRefs } from "pinia";
 import { useGlobalStore } from "~/store/global-store";
 
 const store = useGlobalStore();
 const { detectedDevices } = storeToRefs(store);
-
-const handleClick = () => {
-  navigator.bluetooth.getAvailability().then((isAvailable: boolean) => {
-    store.setIsBluetoothAvailable(isAvailable);
-  });
-  navigator.bluetooth.requestDevice({ acceptAllDevices: true });
-  window.bluetoothAPI.handleSelectDetectedDevices(
-    (_event: IpcRendererEvent, value: Electron.BluetoothDevice[]) => {
-      store.setAvailableDevices(value);
-    }
-  );
-};
 </script>
 
 <template>
   <v-container>
-    <v-btn @click="handleClick">UPDATE</v-btn>
-    <v-container v-for="device in detectedDevices" :key="device.deviceId">
-      <device-item :device="device" />
-    </v-container>
+    <v-alert v-if="detectedDevices.length === 0" border="start" color="grey" outlined type="info">
+      <strong>Not yet scanned</strong> or <strong>No bluetooth devices around</strong>.
+      <strong>Please press the SCAN button</strong>
+    </v-alert>
+    <v-row v-else>
+      <v-col v-for="device in detectedDevices" :key="device.deviceId" cols="4">
+        <device-item :device="device" />
+      </v-col>
+    </v-row>
   </v-container>
 </template>

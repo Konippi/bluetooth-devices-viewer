@@ -5,7 +5,7 @@ const props = defineProps<IDeviceItemProps>();
 </script>
 
 <template>
-  <v-card prepend-icon="mdi-home">
+  <v-card prepend-icon="mdi-bluetooth">
     <v-card-title> {{ props.device.deviceName }} </v-card-title>
   </v-card>
 </template>
